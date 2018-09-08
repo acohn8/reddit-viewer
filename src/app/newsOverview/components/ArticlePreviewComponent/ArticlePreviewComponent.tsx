@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import * as React from 'react';
-import { Feed, Icon, Image, Header } from 'semantic-ui-react';
+import { Feed, Header, Icon, Image } from 'semantic-ui-react';
 
 interface Iprops {
   source: string;

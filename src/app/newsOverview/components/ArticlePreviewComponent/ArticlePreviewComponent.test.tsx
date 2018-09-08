@@ -19,8 +19,17 @@ describe('ArticlePreviewComponent', () => {
   it('should render correctly', () => {
     expect(shallowToJson(output)).toMatchSnapshot();
   });
-  it('should have an source', () => {
+  it('should have a source', () => {
     expect(output.find('New Yorker'));
+  });
+  it('should have a title', () => {
+    expect(output.find('breaking'));
+  });
+  it('should have a icon', () => {
+    expect(output.find('newspaper outline'));
+  });
+  it('should have  text', () => {
+    expect(output.find('a cool article2'));
   });
   it('should have an image', () => {
     expect(output.find('image.jpg'));

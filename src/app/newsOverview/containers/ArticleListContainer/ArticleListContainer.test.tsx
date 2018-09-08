@@ -2,46 +2,46 @@ import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import * as React from 'react';
 
-import { ArticleListContainer, RedditPost } from './ArticleListContainer';
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
+import { ArticleListContainer, RedditPost } from './ArticleListContainer';
 
 describe('ArticlePreview', () => {
   const redditPosts: RedditPost[] = [
     {
-      subreddit_name_prefixed: 'New Yorker',
-      permalink: 'www.newyorker.com',
-      url: 'www.newyorker.com',
       created_utc: 1536423624,
       description: 'a cool article2',
-      thumbnail: 'image.jpg',
-      title: 'breaking',
       icon: 'newspaper outline',
       num_comments: 5,
+      permalink: 'www.newyorker.com',
+      subreddit_name_prefixed: 'New Yorker',
+      thumbnail: 'image.jpg',
+      title: 'breaking',
       ups: 7,
+      url: 'www.newyorker.com',
     },
     {
-      subreddit_name_prefixed: 'New Yorker',
-      permalink: 'www.newyorker.com',
-      url: 'www.newyorker.com',
       created_utc: 1536423624,
       description: 'a cool article2',
-      thumbnail: 'image.jpg',
-      title: 'breaking',
       icon: 'newspaper outline',
       num_comments: 5,
+      permalink: 'www.newyorker.com',
+      subreddit_name_prefixed: 'New Yorker',
+      thumbnail: 'image.jpg',
+      title: 'breaking',
       ups: 7,
+      url: 'www.newyorker.com',
     },
     {
-      subreddit_name_prefixed: 'New Yorker',
-      permalink: 'www.newyorker.com',
-      url: 'www.newyorker.com',
       created_utc: 1536423624,
       description: 'a cool article2',
-      thumbnail: 'image.jpg',
-      title: 'breaking',
       icon: 'newspaper outline',
       num_comments: 5,
+      permalink: 'www.newyorker.com',
+      subreddit_name_prefixed: 'New Yorker',
+      thumbnail: 'image.jpg',
+      title: 'breaking',
       ups: 7,
+      url: 'www.newyorker.com',
     },
   ];
   it('should render correctly', () => {

@@ -1,6 +1,9 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "defaultSeverity": "warning",
+  "rules": {
+    "member-access": [true, "no-public"]
+  },
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
