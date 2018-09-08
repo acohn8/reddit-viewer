@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlePreview should render correctly 1`] = `
+<Grid
+  centered={true}
+  columns={2}
+  relaxed="very"
+  stackable={true}
+>
+  <GridColumn
+    style={
+      Object {
+        "overflowY": "auto",
+      }
+    }
+  >
+    <Header
+      size="large"
+      textAlign="center"
+    >
+      Trending on Reddit
+    </Header>
+    <Segment>
+      <Feed
+        size="large"
+      >
+        <ArticlePreview
+          comments={5}
+          icon="reddit"
+          image="image.jpg"
+          key="www.newyorker.com"
+          link="www.newyorker.com"
+          postDate={2018-09-08T16:20:24.000Z}
+          source="New Yorker"
+          text="a cool article2"
+          title="breaking"
+          upVotes={7}
+        />
+        <Divider />
+        <ArticlePreview
+          comments={5}
+          icon="reddit"
+          image="image.jpg"
+          key="www.newyorker.com"
+          link="www.newyorker.com"
+          postDate={2018-09-08T16:20:24.000Z}
+          source="New Yorker"
+          text="a cool article2"
+          title="breaking"
+          upVotes={7}
+        />
+        <Divider />
+        <ArticlePreview
+          comments={5}
+          icon="reddit"
+          image="image.jpg"
+          key="www.newyorker.com"
+          link="www.newyorker.com"
+          postDate={2018-09-08T16:20:24.000Z}
+          source="New Yorker"
+          text="a cool article2"
+          title="breaking"
+          upVotes={7}
+        />
+        <Divider />
+      </Feed>
+    </Segment>
+  </GridColumn>
+</Grid>
+`;

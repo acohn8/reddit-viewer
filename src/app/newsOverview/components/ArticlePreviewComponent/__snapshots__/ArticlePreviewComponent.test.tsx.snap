@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticlePreviewComponent should render correctly 1`] = `
+<FeedEvent>
+  <FeedContent>
+    <Header
+      as="a"
+      content="New Yorker"
+      href="www.newyorker.com"
+      icon="newspaper outline"
+      size="medium"
+      subheader="3 hours ago"
+      target="_blank"
+    />
+    <FeedSummary>
+      breaking
+    </FeedSummary>
+    <FeedExtra
+      text={true}
+    >
+      <p>
+        a cool article2
+      </p>
+    </FeedExtra>
+    <Image
+      as="a"
+      href="www.newyorker.com"
+      src="image.jpg"
+      target="_blank"
+      ui={true}
+    />
+    <FeedMeta>
+      <FeedLike
+        as="a"
+      >
+        <Icon
+          as="i"
+          name="comments"
+        />
+        5 comments
+      </FeedLike>
+      <FeedLike
+        as="a"
+      >
+        <Icon
+          as="i"
+          name="thumbs up outline"
+        />
+        7
+      </FeedLike>
+      <Icon
+        as="i"
+        name="bookmark"
+      />
+    </FeedMeta>
+  </FeedContent>
+</FeedEvent>
+`;

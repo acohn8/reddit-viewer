@@ -1,0 +1,54 @@
+import * as moment from 'moment';
+import * as React from 'react';
+import { Feed, Icon, Image, Header } from 'semantic-ui-react';
+
+interface Iprops {
+  source: string;
+  link: string;
+  postDate: Date;
+  text: string;
+  title: string;
+  image: string;
+  icon: string;
+  comments: number;
+  upVotes: number;
+}
+
+const ArticlePreview = (props: Iprops) => {
+  const {
+    source, link, text, title, image, icon, postDate, comments, upVotes,
+  } = props;
+  return (
+    <Feed.Event>
+      <Feed.Content>
+        <Header
+          size="medium"
+          icon={icon}
+          as="a"
+          href={link}
+          target="_blank"
+          content={source}
+          subheader={moment(postDate).from(Date.now())}
+        />
+        <Feed.Summary>{title}</Feed.Summary>
+        <Feed.Extra text>
+          <p>{text}</p>
+        </Feed.Extra>
+        {image !== null && <Image src={image} as="a" href={link} target="_blank" />}
+        <Feed.Meta>
+          <Feed.Like>
+            <Icon name="comments" />
+            {`${comments} comments`}
+          </Feed.Like>
+          <Feed.Like>
+            <Icon name="thumbs up outline" />
+            {`${upVotes}`}
+          </Feed.Like>
+          <Icon name="bookmark" />
+        </Feed.Meta>
+      </Feed.Content>
+    </Feed.Event>
+  );
+};
+
+export default ArticlePreview;
