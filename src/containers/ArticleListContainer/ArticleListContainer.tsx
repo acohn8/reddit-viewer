@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
 import { Divider, Feed, Grid, Header, Segment } from 'semantic-ui-react';
+
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
-import { Store } from '../../duck/reducers';
+import { StoreState } from '../../types/index';
 
 export interface RedditPost {
   subreddit_name_prefixed: string;
@@ -54,8 +54,8 @@ export const ArticleListContainer = (props: Props) => {
   );
 };
 
-const mapStateToProps = (state: Store) => ({
-  redditPosts: state.article.redditPosts,
+const mapStateToProps = (state: StoreState) => ({
+  redditPosts: state.redditPosts,
 });
 
 export default connect(mapStateToProps)(ArticleListContainer);

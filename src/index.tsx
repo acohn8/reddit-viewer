@@ -1,17 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 import 'semantic-ui-css/semantic.min.css';
 
-import App from './app/App';
-import rootReducer from './reducers/rootReducer';
+import App from './App';
+import { reducer } from './reducers';
 import registerServiceWorker from './registerServiceWorker';
+import { StoreState } from './types';
 
 const middleware = applyMiddleware(ReduxThunk);
-const store = createStore(rootReducer, composeWithDevTools(middleware));
+const store: Store<StoreState> = createStore(reducer, composeWithDevTools(middleware));
 
 ReactDOM.render(
   <Provider store={store}>

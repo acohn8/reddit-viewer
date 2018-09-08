@@ -2,8 +2,8 @@ import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import * as React from 'react';
 
+import { ArticleListContainer } from '../src/containers/ArticleListContainer/ArticleListContainer';
 import { App } from './App';
-import { ArticleListContainer } from './newsOverview/containers/ArticleListContainer/ArticleListContainer';
 
 describe('App', () => {
   it('renders without crashing', () => {

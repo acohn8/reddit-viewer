@@ -9,7 +9,7 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
       href="www.newyorker.com"
       icon="newspaper outline"
       size="medium"
-      subheader="3 hours ago"
+      subheader="7 hours ago"
       target="_blank"
     />
     <FeedSummary>

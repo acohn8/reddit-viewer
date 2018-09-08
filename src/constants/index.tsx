@@ -1,0 +1,8 @@
+export const SET_ARTICLES = 'SET_ARTICLES';
+export type SET_ARTICLES = typeof SET_ARTICLES;
+
+export const RESET_ARTICLES = 'RESET_ARTICLES';
+export type RESET_ARTICLES = typeof RESET_ARTICLES;
+
+export const SET_REDDIT_POSTS = 'SET_REDDIT_POSTS';
+export type SET_REDDIT_POSTS = typeof SET_REDDIT_POSTS;
