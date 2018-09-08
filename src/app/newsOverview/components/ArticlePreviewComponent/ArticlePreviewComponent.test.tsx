@@ -21,8 +21,8 @@ describe('ArticlePreviewComponent', () => {
   });
   it('should have an source', () => {
     expect(output.find('New Yorker'));
-    it('should have an image', () => {
-      expect(output.find('image.jpg'));
-    });
+  });
+  it('should have an image', () => {
+    expect(output.find('image.jpg'));
   });
 });

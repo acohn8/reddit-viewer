@@ -4,7 +4,6 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 import ArticleListContainer from './newsOverview/containers/ArticleListContainer/ArticleListContainer';
 import { fetchTopRedditPostOperation } from './newsOverview/duck/operations';
-// import { Dispatch } from './newsOverview/duck/actions';
 
 interface IDispatchFromProps {
   fetchTopRedditPostOperation: () => void;
