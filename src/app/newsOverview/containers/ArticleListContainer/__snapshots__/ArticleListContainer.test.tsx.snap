@@ -28,7 +28,7 @@ exports[`ArticlePreview should render correctly 1`] = `
           comments={5}
           icon="reddit"
           image="image.jpg"
-          key="www.newyorker.com"
+          key="1536423624"
           link="www.newyorker.com"
           postDate={2018-09-08T16:20:24.000Z}
           source="New Yorker"
@@ -36,12 +36,14 @@ exports[`ArticlePreview should render correctly 1`] = `
           title="breaking"
           upVotes={7}
         />
-        <Divider />
+        <Divider
+          key="1536423624div"
+        />
         <ArticlePreview
           comments={5}
           icon="reddit"
           image="image.jpg"
-          key="www.newyorker.com"
+          key="1536423624"
           link="www.newyorker.com"
           postDate={2018-09-08T16:20:24.000Z}
           source="New Yorker"
@@ -49,12 +51,14 @@ exports[`ArticlePreview should render correctly 1`] = `
           title="breaking"
           upVotes={7}
         />
-        <Divider />
+        <Divider
+          key="1536423624div"
+        />
         <ArticlePreview
           comments={5}
           icon="reddit"
           image="image.jpg"
-          key="www.newyorker.com"
+          key="1536423624"
           link="www.newyorker.com"
           postDate={2018-09-08T16:20:24.000Z}
           source="New Yorker"
@@ -62,7 +66,9 @@ exports[`ArticlePreview should render correctly 1`] = `
           title="breaking"
           upVotes={7}
         />
-        <Divider />
+        <Divider
+          key="1536423624div"
+        />
       </Feed>
     </Segment>
   </GridColumn>

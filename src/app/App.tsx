@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import ArticleListContainer from './newsOverview/containers/ArticleListContainer/ArticleListContainer';
 import { fetchTopRedditPostOperation } from './newsOverview/duck/operations';
 
-interface IDispatchFromProps {
+interface DispatchFromProps {
   fetchTopRedditPostOperation: () => void;
 }
 
-interface IProps {
+interface Props {
   fetchTopRedditPostOperation: () => void;
 }
 
-export class App extends React.Component<IProps, {}> {
+export class App extends React.Component<Props, {}> {
   componentDidMount() {
     this.props.fetchTopRedditPostOperation();
   }
@@ -29,11 +29,11 @@ export class App extends React.Component<IProps, {}> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any): IDispatchFromProps => ({
+const mapDispatchToProps = (dispatch: any): DispatchFromProps => ({
   fetchTopRedditPostOperation: () => dispatch(fetchTopRedditPostOperation()),
 });
 
-export default connect<null, IDispatchFromProps, void>(
+export default connect<null, DispatchFromProps, void>(
   null,
   mapDispatchToProps,
 )(App);

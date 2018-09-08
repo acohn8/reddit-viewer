@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import * as React from 'react';
 import { Feed, Header, Icon, Image } from 'semantic-ui-react';
 
-interface Iprops {
+interface Props {
   source: string;
   link: string;
   postDate: Date;
@@ -14,7 +14,7 @@ interface Iprops {
   upVotes: number;
 }
 
-const ArticlePreview = (props: Iprops) => {
+const ArticlePreview = (props: Props) => {
   const {
     source, link, text, title, image, icon, postDate, comments, upVotes,
   } = props;

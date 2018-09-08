@@ -2,7 +2,9 @@
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "defaultSeverity": "warning",
   "rules": {
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "interface-name": [true, "never-prefix"],
+    "jsx-boolean-value": false
   },
   "linterOptions": {
     "exclude": [

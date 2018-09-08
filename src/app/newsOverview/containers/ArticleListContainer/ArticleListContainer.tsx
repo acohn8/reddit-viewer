@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Feed, Grid, Divider, Header, Segment } from 'semantic-ui-react';
+import { Divider, Feed, Grid, Header, Segment } from 'semantic-ui-react';
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
 import { Store } from '../../duck/reducers';
 
@@ -18,11 +18,11 @@ export interface RedditPost {
   ups: number;
 }
 
-type Iprops = {
+interface Props {
   redditPosts: RedditPost[];
-};
+}
 
-export const ArticleListContainer = (props: Iprops) => {
+export const ArticleListContainer = (props: Props) => {
   const { redditPosts } = props;
   return (
     <Grid centered columns={2} stackable relaxed="very">
@@ -34,7 +34,7 @@ export const ArticleListContainer = (props: Iprops) => {
           <Feed size="large">
             {redditPosts.map(post => [
               <ArticlePreview
-                key={post.permalink}
+                key={post.created_utc}
                 link={post.url}
                 source={post.subreddit_name_prefixed}
                 text={post.description}
@@ -45,7 +45,7 @@ export const ArticleListContainer = (props: Iprops) => {
                 upVotes={post.ups}
                 icon="reddit"
               />,
-              <Divider />,
+              <Divider key={`${post.created_utc}div`} />,
             ])}
           </Feed>
         </Segment>
