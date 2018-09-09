@@ -6,12 +6,11 @@ import ArticlePreview from './ArticlePreviewComponent';
 
 describe('ArticlePreviewComponent', () => {
   const output = shallow(<ArticlePreview
-    link="www.newyorker.com"
     source="New Yorker"
-    text="a cool article2"
+    link="www.newyorker.com"
+    postDate={new Date(1536423624 * 1000)}
     title="breaking"
     image="image.jpg"
-    postDate={new Date(1536423624 * 1000)}
     icon="newspaper outline"
     upVotes={7}
     comments={5}
@@ -27,9 +26,6 @@ describe('ArticlePreviewComponent', () => {
   });
   it('should have a icon', () => {
     expect(output.find('newspaper outline'));
-  });
-  it('should have  text', () => {
-    expect(output.find('a cool article2'));
   });
   it('should have an image', () => {
     expect(output.find('image.jpg'));

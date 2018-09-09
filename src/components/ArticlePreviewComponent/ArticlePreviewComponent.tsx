@@ -6,7 +6,6 @@ interface Props {
   source: string;
   link: string;
   postDate: Date;
-  text: string;
   title: string;
   image: string;
   icon: string;
@@ -16,7 +15,7 @@ interface Props {
 
 const ArticlePreview = (props: Props) => {
   const {
-    source, link, text, title, image, icon, postDate, comments, upVotes,
+    source, link, title, image, icon, postDate, comments, upVotes,
   } = props;
   return (
     <Feed.Event>
@@ -31,9 +30,6 @@ const ArticlePreview = (props: Props) => {
           subheader={moment(postDate).from(Date.now())}
         />
         <Feed.Summary>{source}</Feed.Summary>
-        <Feed.Extra text>
-          <p>{text}</p>
-        </Feed.Extra>
         {image !== null && <Image src={image} as="a" href={link} target="_blank" size="big" />}
         <Feed.Meta>
           <Feed.Like>

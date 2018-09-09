@@ -9,19 +9,12 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
       href="www.newyorker.com"
       icon="newspaper outline"
       size="medium"
-      subheader="8 hours ago"
+      subheader="a day ago"
       target="_blank"
     />
     <FeedSummary>
       New Yorker
     </FeedSummary>
-    <FeedExtra
-      text={true}
-    >
-      <p>
-        a cool article2
-      </p>
-    </FeedExtra>
     <Image
       as="a"
       href="www.newyorker.com"

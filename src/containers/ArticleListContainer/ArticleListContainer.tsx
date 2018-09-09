@@ -6,16 +6,13 @@ import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePrev
 import { StoreState } from '../../types/index';
 
 export interface RedditPost {
-  subreddit_name_prefixed: string;
-  permalink: string;
-  url: string;
-  created_utc: number;
-  description: string;
-  thumbnail: string;
+  source: string;
+  link: string;
+  postDate: Date;
+  image: string;
   title: string;
-  icon: string;
-  num_comments: number;
-  ups: number;
+  comments: number;
+  upVotes: number;
 }
 
 interface Props {
@@ -34,18 +31,17 @@ export const ArticleListContainer = (props: Props) => {
           <Feed size="large">
             {redditPosts.map(post => [
               <ArticlePreview
-                key={post.created_utc}
-                link={post.url}
-                source={post.subreddit_name_prefixed}
-                text={post.description}
+                key={post.link}
+                link={post.link}
+                source={post.source}
                 title={post.title}
-                image={post.thumbnail}
-                postDate={new Date(post.created_utc * 1000)}
-                comments={post.num_comments}
-                upVotes={post.ups}
+                image={post.image}
+                postDate={post.postDate}
+                comments={post.comments}
+                upVotes={post.upVotes}
                 icon="reddit"
               />,
-              <Divider key={`${post.created_utc}div`} />,
+              <Divider key={`${post.link}div`} />,
             ])}
           </Feed>
         </Segment>

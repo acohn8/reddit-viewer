@@ -8,40 +8,22 @@ import { ArticleListContainer, RedditPost } from './ArticleListContainer';
 describe('ArticlePreview', () => {
   const redditPosts: RedditPost[] = [
     {
-      created_utc: 1536423624,
-      description: 'a cool article2',
-      icon: 'newspaper outline',
-      num_comments: 5,
-      permalink: 'www.newyorker.com',
-      subreddit_name_prefixed: 'New Yorker',
-      thumbnail: 'image.jpg',
+      source: 'New Yorker',
+      link: 'www.newyorker.com',
+      postDate: new Date(1536423624),
+      image: 'image.jpg',
       title: 'breaking',
-      ups: 7,
-      url: 'www.newyorker.com',
+      comments: 5,
+      upVotes: 7,
     },
     {
-      created_utc: 1536423624,
-      description: 'a cool article2',
-      icon: 'newspaper outline',
-      num_comments: 5,
-      permalink: 'www.newyorker.com',
-      subreddit_name_prefixed: 'New Yorker',
-      thumbnail: 'image.jpg',
+      source: 'New Yorker',
+      link: 'www.newyorker.com',
+      postDate: new Date(1536423624),
+      image: 'image.jpg',
       title: 'breaking',
-      ups: 7,
-      url: 'www.newyorker.com',
-    },
-    {
-      created_utc: 1536423624,
-      description: 'a cool article2',
-      icon: 'newspaper outline',
-      num_comments: 5,
-      permalink: 'www.newyorker.com',
-      subreddit_name_prefixed: 'New Yorker',
-      thumbnail: 'image.jpg',
-      title: 'breaking',
-      ups: 7,
-      url: 'www.newyorker.com',
+      comments: 5,
+      upVotes: 7,
     },
   ];
   it('should render correctly', () => {
@@ -50,7 +32,7 @@ describe('ArticlePreview', () => {
   });
   it('should render an ArticlePreview for each article in its array of props', () => {
     const output = shallow(<ArticleListContainer redditPosts={redditPosts} />).dive();
-    expect(output.find(ArticlePreview).length).toEqual(3);
+    expect(output.find(ArticlePreview).length).toEqual(2);
   });
   it('should not render any ArticlePreview items when given an empty array', () => {
     const output = shallow(<ArticleListContainer redditPosts={[]} />).dive();
