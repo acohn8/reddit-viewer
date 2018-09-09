@@ -30,7 +30,11 @@ const ArticlePreview = (props: Props) => {
           subheader={moment(postDate).from(Date.now())}
         />
         <Feed.Summary>{source}</Feed.Summary>
-        {image !== null && <Image src={image} as="a" href={link} target="_blank" size="big" />}
+        {image !== null && (
+          <Feed.Extra style={{ maxWidth: 600, margin: 'auto' }}>
+            <Image src={image} as="a" href={link} target="_blank" fluid />
+          </Feed.Extra>
+        )}
         <Feed.Meta>
           <Feed.Like>
             <Icon name="comments" />
@@ -40,7 +44,6 @@ const ArticlePreview = (props: Props) => {
             <Icon name="thumbs up outline" />
             {`${upVotes}`}
           </Feed.Like>
-          <Icon name="bookmark" />
         </Feed.Meta>
       </Feed.Content>
     </Feed.Event>
