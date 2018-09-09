@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Action } from 'redux';
-
 import { ThunkDispatch } from 'redux-thunk';
 
 import * as actions from '../actions/index';

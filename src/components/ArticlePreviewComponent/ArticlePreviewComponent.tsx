@@ -27,14 +27,14 @@ const ArticlePreview = (props: Props) => {
           as="a"
           href={link}
           target="_blank"
-          content={source}
+          content={title}
           subheader={moment(postDate).from(Date.now())}
         />
-        <Feed.Summary>{title}</Feed.Summary>
+        <Feed.Summary>{source}</Feed.Summary>
         <Feed.Extra text>
           <p>{text}</p>
         </Feed.Extra>
-        {image !== null && <Image src={image} as="a" href={link} target="_blank" />}
+        {image !== null && <Image src={image} as="a" href={link} target="_blank" size="big" />}
         <Feed.Meta>
           <Feed.Like>
             <Icon name="comments" />

@@ -5,15 +5,15 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
   <FeedContent>
     <Header
       as="a"
-      content="New Yorker"
+      content="breaking"
       href="www.newyorker.com"
       icon="newspaper outline"
       size="medium"
-      subheader="7 hours ago"
+      subheader="8 hours ago"
       target="_blank"
     />
     <FeedSummary>
-      breaking
+      New Yorker
     </FeedSummary>
     <FeedExtra
       text={true}
@@ -25,6 +25,7 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
     <Image
       as="a"
       href="www.newyorker.com"
+      size="big"
       src="image.jpg"
       target="_blank"
       ui={true}
