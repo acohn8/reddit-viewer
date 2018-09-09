@@ -20,7 +20,7 @@ export const fetchTopRedditPostOperation = () => async (
 export const fetchPostCommentsOperation = (commentsLink: string) => async (
   dispatch: ThunkDispatch<StoreState, void, Action>,
 ) => {
-  const commentsUrl = `https://www.reddit.com${commentsLink}.json`;
+  const commentsUrl: string = `https://www.reddit.com${commentsLink}.json`;
   const commentsResponse = await axios.get(commentsUrl);
   const comments: [] = commentsResponse.data[1].data.children;
   console.log(comments);
