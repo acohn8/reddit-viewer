@@ -7,12 +7,21 @@ import { RedditPost } from '../containers/ArticleListContainer/ArticleListContai
 import { parseApiResponse } from '../helpers/ParseApiResponse';
 import { StoreState } from '../types';
 
-export function fetchTopRedditPostOperation() {
-  return async (dispatch: ThunkDispatch<StoreState, void, Action>) => {
-    const url = 'https://www.reddit.com/r/all.json?kind=link';
-    const response = await axios.get(url);
-    const posts: [] = response.data.data.children.map((post: any) => post.data);
-    const parsedResponse: RedditPost[] = parseApiResponse(posts);
-    dispatch(actions.SetRedditPosts(parsedResponse));
-  };
-}
+export const fetchTopRedditPostOperation = () => async (
+  dispatch: ThunkDispatch<StoreState, void, Action>,
+) => {
+  const url = 'https://www.reddit.com/r/all.json?kind=link';
+  const response = await axios.get(url);
+  const posts: [] = response.data.data.children.map((post: any) => post.data);
+  const parsedResponse: RedditPost[] = parseApiResponse(posts);
+  dispatch(actions.SetRedditPosts(parsedResponse));
+};
+
+export const fetchPostCommentsOperation = (commentsLink: string) => async (
+  dispatch: ThunkDispatch<StoreState, void, Action>,
+) => {
+  const commentsUrl = `https://www.reddit.com${commentsLink}.json`;
+  const commentsResponse = await axios.get(commentsUrl);
+  const comments: [] = commentsResponse.data[1].data.children;
+  console.log(comments);
+};
