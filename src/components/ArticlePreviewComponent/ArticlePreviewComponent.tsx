@@ -31,7 +31,7 @@ const ArticlePreview = (props: Props) => {
         />
         <Feed.Summary>{source}</Feed.Summary>
         {image !== null && (
-          <Feed.Extra style={{ maxWidth: 600, margin: 'auto' }}>
+          <Feed.Extra style={{ maxWidth: 400, margin: 'auto' }}>
             <Image src={image} as="a" href={link} target="_blank" fluid />
           </Feed.Extra>
         )}
