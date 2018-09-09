@@ -26,6 +26,7 @@ export const parseApiResponse = (responses: ApiResponse[]) =>
 const getImage = (response: ApiResponse) => {
   if (response.domain === 'gfycat.com') {
     return response.thumbnail;
+  } else if (response.preview) {
+    return response.preview.images[0].source.url;
   }
-  return response.preview.images[0].source.url;
 };
