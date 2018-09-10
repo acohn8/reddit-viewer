@@ -27,7 +27,6 @@ export interface RedditComment {
 interface Props {
   fetchPostCommentsOperation: (comments: string) => void;
   redditPosts: RedditPost[];
-  redditComments?: RedditComment[];
 }
 
 export class ArticleListContainer extends React.Component<Props> {
@@ -36,7 +35,7 @@ export class ArticleListContainer extends React.Component<Props> {
   };
 
   render() {
-    const { redditPosts, redditComments } = this.props;
+    const { redditPosts } = this.props;
     return (
       <Grid centered columns={2} stackable relaxed="very">
         <Grid.Column style={{ overflowY: 'auto' }}>
@@ -58,7 +57,6 @@ export class ArticleListContainer extends React.Component<Props> {
                   comments={post.comments}
                   upVotes={post.upVotes}
                   icon="reddit"
-                  redditComments={redditComments}
                 />,
                 <Divider key={`${post.link}div`} />,
               ])}

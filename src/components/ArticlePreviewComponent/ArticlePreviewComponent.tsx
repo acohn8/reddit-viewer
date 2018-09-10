@@ -2,7 +2,6 @@ import * as moment from 'moment';
 import * as React from 'react';
 import { Feed, Header, Icon, Image } from 'semantic-ui-react';
 import PostView from '../PostView/Postview';
-import { RedditComment } from '../../containers/ArticleListContainer/ArticleListContainer';
 
 interface Props {
   source: string;
@@ -15,7 +14,6 @@ interface Props {
   icon: string;
   comments: number;
   upVotes: number;
-  redditComments?: RedditComment[];
 }
 
 const ArticlePreview = (props: Props) => {
@@ -28,7 +26,6 @@ const ArticlePreview = (props: Props) => {
     icon,
     postDate,
     permalink,
-    redditComments,
     comments,
     upVotes,
   } = props;
@@ -56,7 +53,7 @@ const ArticlePreview = (props: Props) => {
             {upVotes}
           </Feed.Like>
           <Feed.Like onClick={() => handleClick(permalink)}>
-            <PostView title={title} image={image} redditComments={redditComments}>
+            <PostView title={title} image={image}>
               {`${comments}`}
             </PostView>
           </Feed.Like>
