@@ -3,17 +3,18 @@ import { Comment } from 'semantic-ui-react';
 
 interface Props {
   body: string;
+  author: string;
+  postTime: string;
 }
 
 const SingleComment = (props: Props) => {
-  const { body } = props;
+  const { body, author, postTime } = props;
   return (
     <Comment>
-      <Comment.Avatar as="a" src="/images/avatar/small/matt.jpg" />
       <Comment.Content>
-        <Comment.Author as="a">Matt</Comment.Author>
+        <Comment.Author as="a">{author}</Comment.Author>
         <Comment.Metadata>
-          <span>Today at 5:42PM</span>
+          <span>{postTime}</span>
         </Comment.Metadata>
         <Comment.Text>{body}</Comment.Text>
         <Comment.Actions>

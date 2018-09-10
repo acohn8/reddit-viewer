@@ -19,11 +19,6 @@ export interface RedditPost {
   upVotes: number;
 }
 
-export interface RedditComment {
-  body: string;
-  replies: [];
-}
-
 interface Props {
   fetchPostCommentsOperation: (comments: string) => void;
   redditPosts: RedditPost[];

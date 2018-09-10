@@ -1,5 +1,6 @@
 import * as constants from '../constants/index';
-import { RedditPost, RedditComment } from '../containers/ArticleListContainer/ArticleListContainer';
+import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
+import { RedditComment } from '../containers/CommentsContainer/CommentContainer';
 
 export interface SetRedditPosts {
   posts: RedditPost[];
