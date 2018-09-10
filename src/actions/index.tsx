@@ -7,11 +7,16 @@ export interface SetRedditPosts {
 }
 
 export interface SetComments {
-  posts: RedditComment[];
+  comments: RedditComment[];
   type: constants.SET_REDDIT_COMMENTS;
 }
 
 export const SetRedditPosts = (posts: RedditPost[]): SetRedditPosts => ({
   posts,
   type: constants.SET_REDDIT_POSTS,
+});
+
+export const SetRedditComments = (comments: RedditComment[]): SetComments => ({
+  comments,
+  type: constants.SET_REDDIT_COMMENTS,
 });

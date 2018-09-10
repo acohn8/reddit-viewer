@@ -6,6 +6,7 @@ import * as actions from '../actions/index';
 import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
 import { parsePostResponse } from '../helpers/parsePostResponse';
 import { StoreState } from '../types';
+import { parseCommentResponse } from '../helpers/parseCommentResponse';
 
 export const fetchTopRedditPostOperation = () => async (
   dispatch: ThunkDispatch<StoreState, void, Action>,
@@ -23,5 +24,6 @@ export const fetchPostCommentsOperation = (commentsLink: string) => async (
   const commentsUrl: string = `https://www.reddit.com${commentsLink}.json`;
   const commentsResponse = await axios.get(commentsUrl);
   const comments: [] = commentsResponse.data[1].data.children;
-  console.log(comments);
+  const parsedComments = parseCommentResponse(comments);
+  dispatch(actions.SetRedditComments(parsedComments));
 };

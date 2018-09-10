@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import PostComments from '../PostComments/PostComment';
 
 export interface Props {
   children?: string;
@@ -16,8 +17,8 @@ const PostView = (props: Props) => {
         <Image size="medium" src={image} wrapped />
 
         <Modal.Description>
-          <Header>Modal Header</Header>
-          <p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>
+          <Header>Comments</Header>
+          <PostComments />
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
