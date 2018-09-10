@@ -10,18 +10,16 @@ interface Props {
 const SingleComment = (props: Props) => {
   const { body, author, postTime } = props;
   return (
-    <Comment>
-      <Comment.Content>
-        <Comment.Author as="a">{author}</Comment.Author>
-        <Comment.Metadata>
-          <span>{postTime}</span>
-        </Comment.Metadata>
-        <Comment.Text>{body}</Comment.Text>
-        <Comment.Actions>
-          <a>Reply</a>
-        </Comment.Actions>
-      </Comment.Content>
-    </Comment>
+    <Comment.Content>
+      <Comment.Author as="a">{author}</Comment.Author>
+      <Comment.Metadata>
+        <span>{postTime}</span>
+      </Comment.Metadata>
+      <Comment.Text>{body}</Comment.Text>
+      <Comment.Actions>
+        <a>Reply</a>
+      </Comment.Actions>
+    </Comment.Content>
   );
 };
 

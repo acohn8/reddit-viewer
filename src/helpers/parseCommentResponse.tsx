@@ -4,22 +4,29 @@ export const parseCommentResponse = (response: any) => {
   const formattedResponse = response.map((comment: any) => {
     const commentThread: any = {};
     commentThread.parent = {};
-    commentThread.parent.id = comment.data.modhash;
+    commentThread.parent.id = comment.data.name;
     commentThread.parent.body = comment.data.body;
     commentThread.parent.author = comment.data.author;
     commentThread.parent.postTime = formatDate(comment.data.created_utc);
-    try {
-      const commentChild = comment.data.replies.data.children[0].data;
-      commentThread.reply = {};
-      commentThread.parent.id = commentChild.modhash;
-      commentThread.reply.body = commentChild.body;
-      commentThread.reply.author = commentChild.author;
-      commentThread.reply.postTime = formatDate(commentChild.created_utc);
-    } catch (e) {
-      commentThread.reply = undefined;
-    }
+    commentThread.replies = getReplies(comment);
     return commentThread;
   });
-  console.log(formattedResponse);
   return formattedResponse;
+};
+
+const getReplies = (comment: any) => {
+  try {
+    const commentChildren = comment.data.replies.data.children
+      .filter((child: any) => child.kind === 't1')
+      .map((commentChild: any) => commentChild.data);
+    const replies = commentChildren.map((reply: any) => ({
+      id: reply.name,
+      body: reply.body,
+      author: reply.author,
+      postTime: formatDate(reply.created_utc),
+    }));
+    return replies;
+  } catch (e) {
+    return undefined;
+  }
 };

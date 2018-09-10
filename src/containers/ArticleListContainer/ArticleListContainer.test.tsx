@@ -8,36 +8,36 @@ import { ArticleListContainer, RedditPost } from './ArticleListContainer';
 describe('ArticlePreview', () => {
   const redditPosts: RedditPost[] = [
     {
-      source: 'New Yorker',
+      comments: 5,
+      image: 'image.jpg',
       link: 'www.newyorker.com',
       permalink: 'newyorker.com',
-      postDate: new Date(1536423624),
-      image: 'image.jpg',
+      postDate: 'yesterday',
+      source: 'New Yorker',
       title: 'breaking',
-      comments: 5,
       upVotes: 7,
     },
     {
-      source: 'New Yorker',
+      comments: 5,
+      image: 'image.jpg',
       link: 'www.newyorker.com',
       permalink: 'newyorker.com',
-      postDate: new Date(1536423624),
-      image: 'image.jpg',
+      postDate: 'yesterday',
+      source: 'New Yorker',
       title: 'breaking',
-      comments: 5,
       upVotes: 7,
     },
   ];
   it('should render correctly', () => {
-    const output = shallow(<ArticleListContainer redditPosts={redditPosts} fetchPostCommentsOperation={jest.fn()} />);
+    const output = shallow(<ArticleListContainer redditPosts={redditPosts} />);
     expect(shallowToJson(output)).toMatchSnapshot();
   });
   it('should render an ArticlePreview for each article in its array of props', () => {
-    const output = shallow(<ArticleListContainer redditPosts={redditPosts} fetchPostCommentsOperation={jest.fn()} />).dive();
+    const output = shallow(<ArticleListContainer redditPosts={redditPosts} />).dive();
     expect(output.find(ArticlePreview).length).toEqual(2);
   });
   it('should not render any ArticlePreview items when given an empty array', () => {
-    const output = shallow(<ArticleListContainer redditPosts={[]} fetchPostCommentsOperation={jest.fn()} />).dive();
+    const output = shallow(<ArticleListContainer redditPosts={[]} />).dive();
     expect(output.find(ArticlePreview).length).toEqual(0);
   });
 });

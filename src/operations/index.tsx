@@ -4,9 +4,9 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import * as actions from '../actions/index';
 import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
+import { parseCommentResponse } from '../helpers/parseCommentResponse';
 import { parsePostResponse } from '../helpers/parsePostResponse';
 import { StoreState } from '../types';
-import { parseCommentResponse } from '../helpers/parseCommentResponse';
 
 export const fetchTopRedditPostOperation = () => async (
   dispatch: ThunkDispatch<StoreState, void, Action>,

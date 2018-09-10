@@ -12,6 +12,10 @@ export interface SetComments {
   type: constants.SET_REDDIT_COMMENTS;
 }
 
+export interface ResetComments {
+  type: constants.RESET_REDDIT_COMMENTS;
+}
+
 export const SetRedditPosts = (posts: RedditPost[]): SetRedditPosts => ({
   posts,
   type: constants.SET_REDDIT_POSTS,
@@ -20,4 +24,8 @@ export const SetRedditPosts = (posts: RedditPost[]): SetRedditPosts => ({
 export const SetRedditComments = (comments: RedditComment[]): SetComments => ({
   comments,
   type: constants.SET_REDDIT_COMMENTS,
+});
+
+export const ResetComments = (): ResetComments => ({
+  type: constants.RESET_REDDIT_COMMENTS,
 });

@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
-import { StoreState } from '../../types';
-// import SingleComment from '../../components/SingleComment/SingleComment';
+// import CommentReply from '../../components/CommentReply/CommentReply';
 import SingleComment from '../../components/SingleComment/SingleComment';
-import CommentReply from '../../components/CommentReply/CommentReply';
+import { StoreState } from '../../types';
+import { Comment } from 'semantic-ui-react';
+import { ResetComments } from '../../actions';
+import { fetchPostCommentsOperation } from '../../operations';
 
 export interface CommentDetails {
   id: string;
@@ -14,25 +18,61 @@ export interface CommentDetails {
 }
 export interface RedditComment {
   parent: CommentDetails;
-  reply: CommentDetails;
+  replies: CommentDetails[];
 }
 interface Props {
+  permalink: string
   redditComments: RedditComment[];
+  ResetComments: () => void;
+  fetchPostCommentsOperation: (comments: string) => void;
 }
 
 class CommentContainer extends React.Component<Props> {
+  componentDidMount() {
+    this.props.fetchPostCommentsOperation(this.props.permalink);
+  }
+
+  componentWillUnmount() {
+    this.props.ResetComments();
+  }
+
   render() {
     const { redditComments } = this.props;
     return redditComments.map(comment =>
-      (comment.reply === undefined ? (
-        <SingleComment
-          key={comment.parent.id}
-          body={comment.parent.body}
-          author={comment.parent.author}
-          postTime={comment.parent.postTime}
-        />
+      (comment.replies === undefined ? (
+        <Comment.Group key={`${comment.parent.id}group`}>
+          <Comment key={`${comment.parent.id}comment`}>
+            <SingleComment
+              key={comment.parent.id}
+              body={comment.parent.body}
+              author={comment.parent.author}
+              postTime={comment.parent.postTime}
+            />
+          </Comment>
+        </Comment.Group>
       ) : (
-        <CommentReply key={comment.reply.id} parent={comment.parent} reply={comment.reply} />
+        <Comment.Group key={`${comment.parent.id}rcomment`}>
+          <Comment key={`${comment.parent.id}comment`}>
+            <SingleComment
+              key={comment.parent.id}
+              body={comment.parent.body}
+              author={comment.parent.author}
+              postTime={comment.parent.postTime}
+            />
+            <Comment.Group key={`${comment.parent.id}group`}>
+              {comment.replies.map(reply => (
+                <Comment key={`${reply.id}comment`}>
+                  <SingleComment
+                    key={reply.id}
+                    body={reply.body}
+                    author={reply.author}
+                    postTime={reply.postTime}
+                  />
+                </Comment>
+                ))}
+            </Comment.Group>
+          </Comment>
+        </Comment.Group>
       )));
   }
 }
@@ -41,4 +81,12 @@ const mapStateToProps = (state: StoreState) => ({
   redditComments: state.redditComments,
 });
 
-export default connect(mapStateToProps)(CommentContainer);
+const mapDispatchToProps = (dispatch: ThunkDispatch<StoreState, void, Action>) => ({
+  ResetComments: () => dispatch(ResetComments()),
+  fetchPostCommentsOperation: (comments: string) => dispatch(fetchPostCommentsOperation(comments)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CommentContainer);

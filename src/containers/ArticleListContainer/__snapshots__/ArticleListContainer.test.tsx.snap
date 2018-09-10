@@ -26,13 +26,12 @@ exports[`ArticlePreview should render correctly 1`] = `
       >
         <ArticlePreview
           comments={5}
-          handleClick={[Function]}
           icon="reddit"
           image="image.jpg"
           key="www.newyorker.com"
           link="www.newyorker.com"
           permalink="newyorker.com"
-          postDate={1970-01-18T18:47:03.624Z}
+          postDate="yesterday"
           source="New Yorker"
           title="breaking"
           upVotes={7}
@@ -42,13 +41,12 @@ exports[`ArticlePreview should render correctly 1`] = `
         />
         <ArticlePreview
           comments={5}
-          handleClick={[Function]}
           icon="reddit"
           image="image.jpg"
           key="www.newyorker.com"
           link="www.newyorker.com"
           permalink="newyorker.com"
-          postDate={1970-01-18T18:47:03.624Z}
+          postDate="yesterday"
           source="New Yorker"
           title="breaking"
           upVotes={7}

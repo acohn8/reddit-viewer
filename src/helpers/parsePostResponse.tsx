@@ -1,3 +1,5 @@
+import { formatDate } from './formatDate';
+
 export interface PostResponse {
   subreddit_name_prefixed: string;
   url: string;
@@ -19,7 +21,7 @@ export const parsePostResponse = (responses: PostResponse[]) =>
     image: getImage(response),
     link: response.url,
     permalink: response.permalink,
-    postDate: new Date(response.created_utc * 1000),
+    postDate: formatDate(response.created_utc),
     source: response.subreddit_name_prefixed,
     title: response.title,
     upVotes: response.ups,

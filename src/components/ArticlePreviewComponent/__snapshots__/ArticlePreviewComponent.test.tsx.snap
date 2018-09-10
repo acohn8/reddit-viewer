@@ -3,15 +3,14 @@
 exports[`ArticlePreviewComponent should render correctly 1`] = `
 <FeedEvent>
   <FeedContent>
-    <Header
-      as="a"
-      content="breaking"
-      href="www.newyorker.com"
-      icon="newspaper outline"
-      size="medium"
-      subheader="a day ago"
-      target="_blank"
-    />
+    <Connect(PostView)
+      date="yesterday"
+      image="image.jpg"
+      permalink="www.newyorker.com"
+      title="breaking"
+    >
+      breaking
+    </Connect(PostView)>
     <FeedSummary>
       New Yorker
     </FeedSummary>
@@ -44,14 +43,8 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
       </FeedLike>
       <FeedLike
         as="a"
-        onClick={[Function]}
       >
-        <PostView
-          image="image.jpg"
-          title="breaking"
-        >
-          5
-        </PostView>
+        5
       </FeedLike>
     </FeedMeta>
   </FeedContent>
