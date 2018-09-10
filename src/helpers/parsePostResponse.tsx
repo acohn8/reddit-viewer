@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export interface PostResponse {
   subreddit_name_prefixed: string;
   url: string;
   created_utc: number;
@@ -12,8 +12,8 @@ export interface ApiResponse {
   ups: number;
 }
 
-export const parseApiResponse = (responses: ApiResponse[]) =>
-  responses.map((response: ApiResponse) => ({
+export const parsePostResponse = (responses: PostResponse[]) =>
+  responses.map((response: PostResponse) => ({
     comments: response.num_comments,
     image: getImage(response),
     link: response.url,
@@ -23,7 +23,7 @@ export const parseApiResponse = (responses: ApiResponse[]) =>
     upVotes: response.ups,
   }));
 
-const getImage = (response: ApiResponse) => {
+const getImage = (response: PostResponse) => {
   if (response.domain === 'gfycat.com') {
     return response.thumbnail;
   } else if (response.preview) {

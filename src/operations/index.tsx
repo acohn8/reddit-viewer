@@ -4,16 +4,16 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import * as actions from '../actions/index';
 import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
-import { parseApiResponse } from '../helpers/ParseApiResponse';
+import { parsePostResponse } from '../helpers/parsePostResponse';
 import { StoreState } from '../types';
 
 export const fetchTopRedditPostOperation = () => async (
   dispatch: ThunkDispatch<StoreState, void, Action>,
 ) => {
-  const url = 'https://www.reddit.com/r/all.json?kind=link';
+  const url: string = 'https://www.reddit.com/r/all.json?kind=link';
   const response = await axios.get(url);
   const posts: [] = response.data.data.children.map((post: any) => post.data);
-  const parsedResponse: RedditPost[] = parseApiResponse(posts);
+  const parsedResponse: RedditPost[] = parsePostResponse(posts);
   dispatch(actions.SetRedditPosts(parsedResponse));
 };
 

@@ -15,37 +15,43 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
     <FeedSummary>
       New Yorker
     </FeedSummary>
-    <Image
-      as="a"
-      href="www.newyorker.com"
-      size="big"
-      src="image.jpg"
-      target="_blank"
-      ui={true}
-    />
+    <FeedExtra
+      style={
+        Object {
+          "margin": "auto",
+          "maxWidth": 400,
+        }
+      }
+    >
+      <Image
+        as="a"
+        fluid={true}
+        href="www.newyorker.com"
+        src="image.jpg"
+        target="_blank"
+        ui={true}
+      />
+    </FeedExtra>
     <FeedMeta>
       <FeedLike
         as="a"
       >
         <Icon
           as="i"
-          name="comments"
+          name="like"
         />
-        5 comments
+        7
       </FeedLike>
       <FeedLike
         as="a"
       >
-        <Icon
-          as="i"
-          name="thumbs up outline"
-        />
-        7
+        <PostView
+          image="image.jpg"
+          title="breaking"
+        >
+          5
+        </PostView>
       </FeedLike>
-      <Icon
-        as="i"
-        name="bookmark"
-      />
     </FeedMeta>
   </FeedContent>
 </FeedEvent>

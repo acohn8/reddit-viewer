@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostView should render correctly 1`] = `
+<Modal
+  centered={true}
+  closeOnDimmerClick={true}
+  closeOnDocumentClick={false}
+  dimmer={true}
+  eventPool="Modal"
+  trigger={
+    <Icon
+      as="i"
+      name="comments"
+    />
+  }
+>
+  <ModalHeader>
+    breaking
+  </ModalHeader>
+  <ModalContent
+    image={true}
+    scrolling={true}
+  >
+    <Image
+      as="img"
+      size="medium"
+      src="image.jpg"
+      ui={true}
+      wrapped={true}
+    />
+    <ModalDescription>
+      <Header>
+        Modal Header
+      </Header>
+      <p>
+        This is an example of expanded content that will cause the modal's dimmer to scroll
+      </p>
+    </ModalDescription>
+  </ModalContent>
+  <ModalActions>
+    <Button
+      as="button"
+      primary={true}
+      role="button"
+    >
+      Proceed 
+      <Icon
+        as="i"
+        name="chevron right"
+      />
+    </Button>
+  </ModalActions>
+</Modal>
+`;

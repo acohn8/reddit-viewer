@@ -1,6 +1,9 @@
 export const SET_ARTICLES = 'SET_ARTICLES';
 export type SET_ARTICLES = typeof SET_ARTICLES;
 
+export const SET_REDDIT_COMMENTS = 'SET_REDDIT_COMMENTS';
+export type SET_REDDIT_COMMENTS = typeof SET_REDDIT_COMMENTS;
+
 export const RESET_ARTICLES = 'RESET_ARTICLES';
 export type RESET_ARTICLES = typeof RESET_ARTICLES;
 

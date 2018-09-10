@@ -15,40 +15,47 @@ export interface RedditPost {
   upVotes: number;
 }
 
+export interface RedditComment {
+  body: string;
+  replies: [];
+}
+
 interface Props {
   redditPosts: RedditPost[];
 }
 
-export const ArticleListContainer = (props: Props) => {
-  const { redditPosts } = props;
-  return (
-    <Grid centered columns={2} stackable relaxed="very">
-      <Grid.Column style={{ overflowY: 'auto' }}>
-        <Header size="large" textAlign="center">
-          Trending on Reddit
-        </Header>
-        <Segment>
-          <Feed size="large">
-            {redditPosts.map(post => [
-              <ArticlePreview
-                key={post.link}
-                link={post.link}
-                source={post.source}
-                title={post.title}
-                image={post.image}
-                postDate={post.postDate}
-                comments={post.comments}
-                upVotes={post.upVotes}
-                icon="reddit"
-              />,
-              <Divider key={`${post.link}div`} />,
-            ])}
-          </Feed>
-        </Segment>
-      </Grid.Column>
-    </Grid>
-  );
-};
+export class ArticleListContainer extends React.Component<Props> {
+  render() {
+    const { redditPosts } = this.props;
+    return (
+      <Grid centered columns={2} stackable relaxed="very">
+        <Grid.Column style={{ overflowY: 'auto' }}>
+          <Header size="large" textAlign="center">
+            Trending on Reddit
+          </Header>
+          <Segment>
+            <Feed size="large">
+              {redditPosts.map(post => [
+                <ArticlePreview
+                  key={post.link}
+                  link={post.link}
+                  source={post.source}
+                  title={post.title}
+                  image={post.image}
+                  postDate={post.postDate}
+                  comments={post.comments}
+                  upVotes={post.upVotes}
+                  icon="reddit"
+                />,
+                <Divider key={`${post.link}div`} />,
+              ])}
+            </Feed>
+          </Segment>
+        </Grid.Column>
+      </Grid>
+    );
+  }
+}
 
 const mapStateToProps = (state: StoreState) => ({
   redditPosts: state.redditPosts,

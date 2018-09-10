@@ -1,9 +1,14 @@
 import * as constants from '../constants/index';
-import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
+import { RedditPost, RedditComment } from '../containers/ArticleListContainer/ArticleListContainer';
 
 export interface SetRedditPosts {
   posts: RedditPost[];
   type: constants.SET_REDDIT_POSTS;
+}
+
+export interface SetComments {
+  posts: RedditComment[];
+  type: constants.SET_REDDIT_COMMENTS;
 }
 
 export const SetRedditPosts = (posts: RedditPost[]): SetRedditPosts => ({

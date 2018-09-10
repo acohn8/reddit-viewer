@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 import * as React from 'react';
 import { Feed, Header, Icon, Image } from 'semantic-ui-react';
+import PostView from '../PostView/Postview';
 
 interface Props {
   source: string;
@@ -37,12 +38,11 @@ const ArticlePreview = (props: Props) => {
         )}
         <Feed.Meta>
           <Feed.Like>
-            <Icon name="comments" />
-            {`${comments} comments`}
+            <Icon name="like" />
+            {upVotes}
           </Feed.Like>
           <Feed.Like>
-            <Icon name="thumbs up outline" />
-            {`${upVotes}`}
+            <PostView title={title} image={image}>{`${comments}`}</PostView>
           </Feed.Like>
         </Feed.Meta>
       </Feed.Content>
