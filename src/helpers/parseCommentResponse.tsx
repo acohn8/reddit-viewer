@@ -20,15 +20,30 @@ const getReplies = (comment: any) => {
     const commentChildren = comment.data.replies.data.children
       .filter((child: any) => child.kind === 't1')
       .map((commentChild: any) => commentChild.data);
-    const replies = commentChildren.map((reply: any) => ({
-      id: reply.name,
-      body: reply.body,
-      author: reply.author,
-      upVotes: reply.ups,
-      postTime: formatDate(reply.created_utc),
-    }));
-    return replies;
+    const formattedReplies = commentChildren.map((reply: any) => {
+      const commentReplies: any = getFormattedReplies(reply);
+      commentReplies.replies = {};
+      if (reply.replies.data.children.filter((child: any) => child.kind === 't1').length > 0) {
+        const nextReplies = reply.replies.data.children
+          .filter((child: any) => child.kind === 't1')
+          .map((nextReply: any) => nextReply.data);
+        commentReplies.replies = nextReplies.map((nextReply: any) =>
+          getFormattedReplies(nextReply));
+      } else {
+        commentReplies.replies = [];
+      }
+      return commentReplies;
+    });
+    return formattedReplies;
   } catch (e) {
     return undefined;
   }
 };
+
+const getFormattedReplies = (reply: any) => ({
+  id: reply.name,
+  body: reply.body,
+  author: reply.author,
+  upVotes: reply.ups,
+  postTime: formatDate(reply.created_utc),
+});

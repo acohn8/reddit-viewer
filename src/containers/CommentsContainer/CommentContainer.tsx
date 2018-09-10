@@ -16,13 +16,14 @@ export interface CommentDetails {
   author: string;
   upVotes: number;
   postTime: string;
+  replies: CommentDetails[];
 }
 export interface RedditComment {
   parent: CommentDetails;
   replies: CommentDetails[];
 }
 interface Props {
-  permalink: string
+  permalink: string;
   redditComments: RedditComment[];
   ResetComments: () => void;
   fetchPostCommentsOperation: (comments: string) => void;
@@ -57,8 +58,8 @@ class CommentContainer extends React.Component<Props> {
           <Comment key={`${comment.parent.id}comment`}>
             <SingleComment
               key={comment.parent.id}
-                body={comment.parent.body}
-                upVotes={comment.parent.upVotes}
+              body={comment.parent.body}
+              upVotes={comment.parent.upVotes}
               author={comment.parent.author}
               postTime={comment.parent.postTime}
             />
@@ -67,9 +68,9 @@ class CommentContainer extends React.Component<Props> {
                 <Comment key={`${reply.id}comment`}>
                   <SingleComment
                     key={reply.id}
-                      body={reply.body}
-                      upVotes={comment.parent.upVotes}
+                    body={reply.body}
                     author={reply.author}
+                    upVotes={reply.upVotes}
                     postTime={reply.postTime}
                   />
                 </Comment>
