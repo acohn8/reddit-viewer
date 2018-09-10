@@ -7,6 +7,7 @@ export const parseCommentResponse = (response: any) => {
     commentThread.parent.id = comment.data.name;
     commentThread.parent.body = comment.data.body;
     commentThread.parent.author = comment.data.author;
+    commentThread.parent.upVotes = comment.data.ups;
     commentThread.parent.postTime = formatDate(comment.data.created_utc);
     commentThread.replies = getReplies(comment);
     return commentThread;
@@ -23,6 +24,7 @@ const getReplies = (comment: any) => {
       id: reply.name,
       body: reply.body,
       author: reply.author,
+      upVotes: reply.ups,
       postTime: formatDate(reply.created_utc),
     }));
     return replies;

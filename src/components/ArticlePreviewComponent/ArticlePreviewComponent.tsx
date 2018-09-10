@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Feed, Icon, Image } from 'semantic-ui-react';
+import { Feed, Header, Icon, Image, Divider } from 'semantic-ui-react';
 import PostView from '../PostView/Postview';
 
 interface Props {
@@ -21,21 +21,25 @@ const ArticlePreview = (props: Props) => {
   return (
     <Feed.Event>
       <Feed.Content>
+        <Header size="tiny">{source}</Header>
         <PostView title={title} image={image} permalink={permalink} date={postDate}>
           {title}
         </PostView>
-        <Feed.Summary>{source}</Feed.Summary>
+        <Divider hidden />
         {image !== null && (
           <Feed.Extra style={{ maxWidth: 400, margin: 'auto' }}>
             <Image src={image} as="a" href={link} target="_blank" fluid />
           </Feed.Extra>
         )}
         <Feed.Meta>
-          <Feed.Like>
-            <Icon name="like" />
-            {upVotes}
-          </Feed.Like>
-          <Feed.Like>{comments}</Feed.Like>
+          {upVotes > 0 ? (
+            <Icon name="arrow up" color="orange" />
+          ) : (
+            <Icon name="arrow down" color="blue" />
+          )}
+          {upVotes}
+          <Icon name="comment outline" color="green" />
+          {comments}
         </Feed.Meta>
       </Feed.Content>
     </Feed.Event>
