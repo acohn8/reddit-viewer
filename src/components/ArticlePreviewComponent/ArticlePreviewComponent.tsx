@@ -7,6 +7,8 @@ interface Props {
   source: string;
   link: string;
   postDate: Date;
+  permalink: string;
+  handleClick: (link: string) => void;
   title: string;
   image: string;
   icon: string;
@@ -16,7 +18,16 @@ interface Props {
 
 const ArticlePreview = (props: Props) => {
   const {
-    source, link, title, image, icon, postDate, comments, upVotes,
+    source,
+    link,
+    title,
+    handleClick,
+    image,
+    icon,
+    postDate,
+    permalink,
+    comments,
+    upVotes,
   } = props;
   return (
     <Feed.Event>
@@ -41,7 +52,7 @@ const ArticlePreview = (props: Props) => {
             <Icon name="like" />
             {upVotes}
           </Feed.Like>
-          <Feed.Like>
+          <Feed.Like onClick={() => handleClick(permalink)}>
             <PostView title={title} image={image}>{`${comments}`}</PostView>
           </Feed.Like>
         </Feed.Meta>

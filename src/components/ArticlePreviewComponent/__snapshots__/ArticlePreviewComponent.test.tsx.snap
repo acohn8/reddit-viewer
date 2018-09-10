@@ -44,6 +44,7 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
       </FeedLike>
       <FeedLike
         as="a"
+        onClick={[Function]}
       >
         <PostView
           image="image.jpg"

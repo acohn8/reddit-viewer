@@ -7,11 +7,11 @@ import { App } from './App';
 
 describe('App', () => {
   it('renders without crashing', () => {
-    const output = shallow(<App fetchTopRedditPostOperation={jest.fn()} fetchPostCommentsOperation={jest.fn()} />);
+    const output = shallow(<App fetchTopRedditPostOperation={jest.fn()} />);
     expect(shallowToJson(output)).toMatchSnapshot();
   });
   it('renders ArticleListContainer', () => {
-    const output = shallow(<App fetchTopRedditPostOperation={jest.fn()} fetchPostCommentsOperation={jest.fn()} />).dive();
+    const output = shallow(<App fetchTopRedditPostOperation={jest.fn()} />).dive();
     expect(output.find(ArticleListContainer));
   });
 });

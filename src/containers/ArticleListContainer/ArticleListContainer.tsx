@@ -1,13 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Action } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 import { Divider, Feed, Grid, Header, Segment } from 'semantic-ui-react';
 
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
 import { StoreState } from '../../types/index';
+import { fetchPostCommentsOperation } from '../../operations/index';
 
 export interface RedditPost {
   source: string;
   link: string;
+  permalink: string;
   postDate: Date;
   image: string;
   title: string;
@@ -21,10 +25,15 @@ export interface RedditComment {
 }
 
 interface Props {
+  fetchPostCommentsOperation: (comments: string) => void;
   redditPosts: RedditPost[];
 }
 
 export class ArticleListContainer extends React.Component<Props> {
+  handleClick = (permalink: string) => {
+    this.props.fetchPostCommentsOperation(permalink);
+  };
+
   render() {
     const { redditPosts } = this.props;
     return (
@@ -42,6 +51,8 @@ export class ArticleListContainer extends React.Component<Props> {
                   source={post.source}
                   title={post.title}
                   image={post.image}
+                  handleClick={this.handleClick}
+                  permalink={post.permalink}
                   postDate={post.postDate}
                   comments={post.comments}
                   upVotes={post.upVotes}
@@ -61,4 +72,11 @@ const mapStateToProps = (state: StoreState) => ({
   redditPosts: state.redditPosts,
 });
 
-export default connect(mapStateToProps)(ArticleListContainer);
+const mapDispatchToProps = (dispatch: ThunkDispatch<StoreState, void, Action>) => ({
+  fetchPostCommentsOperation: (comments: string) => dispatch(fetchPostCommentsOperation(comments)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ArticleListContainer);

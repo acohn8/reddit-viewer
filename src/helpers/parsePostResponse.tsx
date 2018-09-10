@@ -3,6 +3,7 @@ export interface PostResponse {
   url: string;
   created_utc: number;
   description: string;
+  permalink: string;
   preview: any;
   domain: any;
   thumbnail: string;
@@ -17,6 +18,7 @@ export const parsePostResponse = (responses: PostResponse[]) =>
     comments: response.num_comments,
     image: getImage(response),
     link: response.url,
+    permalink: response.permalink,
     postDate: new Date(response.created_utc * 1000),
     source: response.subreddit_name_prefixed,
     title: response.title,
