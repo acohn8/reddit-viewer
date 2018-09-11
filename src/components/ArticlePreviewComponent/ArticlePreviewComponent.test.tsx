@@ -12,7 +12,6 @@ describe('ArticlePreviewComponent', () => {
     postDate="yesterday"
     title="breaking"
     image="image.jpg"
-    icon="newspaper outline"
     upVotes={7}
     comments={5}
   />);

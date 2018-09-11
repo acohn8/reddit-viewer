@@ -3,17 +3,22 @@
 exports[`ArticlePreviewComponent should render correctly 1`] = `
 <FeedEvent>
   <FeedContent>
-    <Connect(PostView)
+    <Header
+      size="tiny"
+    >
+      New Yorker
+    </Header>
+    <PostView
       date="yesterday"
       image="image.jpg"
       permalink="www.newyorker.com"
       title="breaking"
     >
       breaking
-    </Connect(PostView)>
-    <FeedSummary>
-      New Yorker
-    </FeedSummary>
+    </PostView>
+    <Divider
+      hidden={true}
+    />
     <FeedExtra
       style={
         Object {
@@ -32,20 +37,18 @@ exports[`ArticlePreviewComponent should render correctly 1`] = `
       />
     </FeedExtra>
     <FeedMeta>
-      <FeedLike
-        as="a"
-      >
-        <Icon
-          as="i"
-          name="like"
-        />
-        7
-      </FeedLike>
-      <FeedLike
-        as="a"
-      >
-        5
-      </FeedLike>
+      <Icon
+        as="i"
+        color="orange"
+        name="arrow up"
+      />
+      7
+      <Icon
+        as="i"
+        color="green"
+        name="comment outline"
+      />
+      5
     </FeedMeta>
   </FeedContent>
 </FeedEvent>
