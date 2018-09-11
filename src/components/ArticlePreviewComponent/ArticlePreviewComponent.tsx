@@ -9,7 +9,6 @@ interface Props {
   permalink: string;
   title: string;
   image: string;
-  icon: string;
   comments: number;
   upVotes: number;
 }

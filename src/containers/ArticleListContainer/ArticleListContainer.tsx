@@ -42,7 +42,6 @@ export class ArticleListContainer extends React.Component<Props> {
                   postDate={post.postDate}
                   comments={post.comments}
                   upVotes={post.upVotes}
-                  icon="reddit"
                 />,
                 <Divider key={`${post.link}div`} />,
               ])}
