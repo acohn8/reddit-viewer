@@ -27,5 +27,6 @@ export const SetRedditComments = (comments: RedditComment[]): SetComments => ({
 });
 
 export const ResetComments = (): ResetComments => ({
+  comments: [],
   type: constants.RESET_REDDIT_COMMENTS,
 });

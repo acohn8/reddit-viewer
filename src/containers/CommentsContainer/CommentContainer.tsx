@@ -16,7 +16,6 @@ export interface CommentDetails {
   author: string;
   upVotes: number;
   postTime: string;
-  replies: CommentDetails[];
 }
 export interface RedditComment {
   parent: CommentDetails;

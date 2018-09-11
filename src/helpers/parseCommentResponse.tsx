@@ -1,7 +1,8 @@
 import { formatDate } from './formatDate';
+import { RedditComment } from '../containers/CommentsContainer/CommentContainer';
 
 export const parseCommentResponse = (response: any) => {
-  const formattedResponse = response.map((comment: any) => {
+  const formattedResponse: RedditComment[] = response.map((comment: any) => {
     const commentThread: any = {};
     commentThread.parent = {};
     commentThread.parent.id = comment.data.name;
@@ -20,18 +21,8 @@ const getReplies = (comment: any) => {
     const commentChildren = comment.data.replies.data.children
       .filter((child: any) => child.kind === 't1')
       .map((commentChild: any) => commentChild.data);
-    const formattedReplies = commentChildren.map((reply: any) => {
+    const formattedReplies: RedditComment[] = commentChildren.map((reply: any) => {
       const commentReplies: any = getFormattedReplies(reply);
-      commentReplies.replies = {};
-      if (reply.replies.data.children.filter((child: any) => child.kind === 't1').length > 0) {
-        const nextReplies = reply.replies.data.children
-          .filter((child: any) => child.kind === 't1')
-          .map((nextReply: any) => nextReply.data);
-        commentReplies.replies = nextReplies.map((nextReply: any) =>
-          getFormattedReplies(nextReply));
-      } else {
-        commentReplies.replies = [];
-      }
       return commentReplies;
     });
     return formattedReplies;

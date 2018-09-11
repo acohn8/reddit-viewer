@@ -26,7 +26,6 @@ exports[`ArticlePreview should render correctly 1`] = `
       >
         <ArticlePreview
           comments={5}
-          icon="reddit"
           image="image.jpg"
           key="www.newyorker.com"
           link="www.newyorker.com"
@@ -41,7 +40,6 @@ exports[`ArticlePreview should render correctly 1`] = `
         />
         <ArticlePreview
           comments={5}
-          icon="reddit"
           image="image.jpg"
           key="www.newyorker.com"
           link="www.newyorker.com"
