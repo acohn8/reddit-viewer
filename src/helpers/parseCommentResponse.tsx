@@ -1,5 +1,5 @@
+import { RedditComment } from '../types';
 import { formatDate } from './formatDate';
-import { RedditComment } from '../containers/CommentsContainer/CommentContainer';
 
 export const parseCommentResponse = (response: any) => {
   const formattedResponse: RedditComment[] = response.map((comment: any) => {
@@ -32,9 +32,9 @@ const getReplies = (comment: any) => {
 };
 
 const getFormattedReplies = (reply: any) => ({
-  id: reply.name,
-  body: reply.body,
   author: reply.author,
-  upVotes: reply.ups,
+  body: reply.body,
+  id: reply.name,
   postTime: formatDate(reply.created_utc),
+  upVotes: reply.ups,
 });

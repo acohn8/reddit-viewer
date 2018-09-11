@@ -1,6 +1,5 @@
 import * as constants from '../constants/index';
-import { RedditPost } from '../containers/ArticleListContainer/ArticleListContainer';
-import { RedditComment } from '../containers/CommentsContainer/CommentContainer';
+import { RedditComment, RedditPost } from '../types';
 
 export interface SetRedditPosts {
   posts: RedditPost[];
@@ -27,6 +26,5 @@ export const SetRedditComments = (comments: RedditComment[]): SetComments => ({
 });
 
 export const ResetComments = (): ResetComments => ({
-  comments: [],
   type: constants.RESET_REDDIT_COMMENTS,
 });

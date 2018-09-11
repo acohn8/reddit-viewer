@@ -3,18 +3,7 @@ import { connect } from 'react-redux';
 import { Divider, Feed, Grid, Header, Segment } from 'semantic-ui-react';
 
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
-import { StoreState } from '../../types/index';
-
-export interface RedditPost {
-  source: string;
-  link: string;
-  permalink: string;
-  postDate: string;
-  image: string;
-  title: string;
-  comments: number;
-  upVotes: number;
-}
+import { RedditPost, StoreState } from '../../types/index';
 
 interface Props {
   redditPosts: RedditPost[];

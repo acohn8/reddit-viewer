@@ -2,25 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Action } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-
-// import CommentReply from '../../components/CommentReply/CommentReply';
-import SingleComment from '../../components/SingleComment/SingleComment';
-import { StoreState } from '../../types';
 import { Comment } from 'semantic-ui-react';
-import { ResetComments } from '../../actions';
-import { fetchPostCommentsOperation } from '../../operations';
 
-export interface CommentDetails {
-  id: string;
-  body: string;
-  author: string;
-  upVotes: number;
-  postTime: string;
-}
-export interface RedditComment {
-  parent: CommentDetails;
-  replies: CommentDetails[];
-}
+import { ResetComments } from '../../actions';
+import SingleComment from '../../components/SingleComment/SingleComment';
+import { fetchPostCommentsOperation } from '../../operations';
+import { RedditComment, StoreState } from '../../types';
+
 interface Props {
   permalink: string;
   redditComments: RedditComment[];

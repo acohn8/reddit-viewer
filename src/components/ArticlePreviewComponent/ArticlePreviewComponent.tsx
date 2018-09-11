@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Feed, Header, Icon, Image, Divider } from 'semantic-ui-react';
+import { Divider, Feed, Header, Icon, Image } from 'semantic-ui-react';
 import PostView from '../PostView/Postview';
 
 interface Props {

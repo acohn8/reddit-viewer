@@ -3,7 +3,8 @@ import { shallowToJson } from 'enzyme-to-json';
 import * as React from 'react';
 
 import ArticlePreview from '../../components/ArticlePreviewComponent/ArticlePreviewComponent';
-import { ArticleListContainer, RedditPost } from './ArticleListContainer';
+import { RedditPost } from '../../types';
+import { ArticleListContainer } from './ArticleListContainer';
 
 describe('ArticlePreview', () => {
   const redditPosts: RedditPost[] = [
